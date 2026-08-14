@@ -101,6 +101,10 @@ const STORAGE_KEY = "treasure-ttpes-rps";
 const LR_STORAGE_KEY = "treasure-lr-rps";
 const LR_CELL_COUNT = 12;
 
+/* 공수 취향표 - 10명을 4-3-3 세 그룹(세로 컬럼)으로 나눠 배치한다.
+   그룹 크기를 바꾸고 싶으면 이 배열만 수정하면 된다. */
+const LR_GROUP_SIZES = [4, 3, 3];
+
 /* 행/열 개별 숨기기 상태 (멤버 인덱스 기준, rows/cols 따로 관리) */
 const HIDDEN_KEY = "treasure-hidden-members";
 const hiddenSaved = JSON.parse(localStorage.getItem(HIDDEN_KEY)) || { rows: [], cols: [] };
@@ -583,11 +587,7 @@ function defaultAvatar(name, color) {
 
 /* ==========================================
    공수 취향표 - 그리드 생성
-   10명을 4-3-3 세 그룹(세로 컬럼)으로 나눠 배치한다.
-   그룹 크기를 바꾸고 싶으면 이 배열만 수정하면 된다.
 ========================================== */
-
-const LR_GROUP_SIZES = [4, 3, 3];
 
 function createLrGrid() {
     lrGrid.innerHTML = "";
