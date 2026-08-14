@@ -168,7 +168,7 @@ const scaleWrap = document.getElementById("scaleWrap");
 /* CSS의 @media (max-width: 768px)과 동일한 기준.
    이 폭 이하에서는 JS로 축소하지 않고, 반응형 레이아웃을 그대로 사용한다. */
 const MOBILE_BREAKPOINT = 768;
-const DESKTOP_CAPTURE_WIDTH = 1100;
+const DESKTOP_CAPTURE_WIDTH = 1300;
 
 let currentTarget = null; // { type: "cell", td } | { type: "row", index } | { type: "col", index }
 let currentTab = "rps";

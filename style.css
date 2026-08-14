@@ -34,7 +34,7 @@ body {
 }
 
 .capture-area {
-    width: 1100px;
+    width: 1300px;
     margin: 0 auto;
     padding: 28px 50px 34px;
     background: #fff;
@@ -128,7 +128,7 @@ h1 {
     display: flex;
     justify-content: flex-end;
     gap: 8px;
-    max-width: 980px;
+    max-width: 1160px;
     margin: 0 auto 8px;
 }
 
@@ -159,7 +159,7 @@ h1 {
 
 table {
     width: 100%;
-    max-width: 980px;
+    max-width: 1160px;
     margin: 0 auto;
     border-collapse: collapse;
     table-layout: fixed;
@@ -173,11 +173,13 @@ th {
     height: 68px;
     font-size: 23px;
     font-weight: 800;
+    padding: 0 4px;
+    white-space: nowrap;
     border: 1px solid rgba(255,255,255,.45);
 }
 
 th:first-child {
-    width: 140px;
+    width: 150px;
 }
 
 .clickable-header {
