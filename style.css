@@ -34,18 +34,13 @@ body {
 }
 
 .capture-area {
-    width: 1500px;
+    width: 1400px;
     margin: 0 auto;
-    padding: 28px 50px 34px;
+    padding: 28px 60px 34px;
     background: #fff;
     border-radius: 24px;
     box-shadow: 0 10px 40px rgba(0, 0, 0, .08);
     transform-origin: top left;
-}
-
-/* 공수 취향표와 틎페스 취향표 폭을 동일하게 맞춘다. */
-#captureAreaLr {
-    width: 1500px;
 }
 
 /* ===========================
@@ -55,7 +50,7 @@ body {
 .tab-wrap {
     display: flex;
     gap: 8px;
-    background: #ecf1fa;
+    background: #eaf0fb;
     padding: 6px;
     border-radius: 999px;
     margin-bottom: 18px;
@@ -68,18 +63,18 @@ body {
     border-radius: 999px;
     font-size: 15px;
     font-weight: 800;
-    color: #5578bb;
+    color: #7c95cc;
     cursor: pointer;
     transition: .2s;
 }
 
 .tab-btn:hover {
-    color: #425c91;
+    color: #3d5aa8;
 }
 
 .tab-btn.active {
     background: #6188d5;
-    color: #1a1a1a;
+    color: #ffffff;
 }
 
 /* ===========================
@@ -98,7 +93,7 @@ h1 {
     font-size: 34px;
     line-height: 1.15;
     font-weight: 900;
-    color: #425c91;
+    color: #3d5aa8;
     margin: 0 0 38px;
 }
 
@@ -116,7 +111,7 @@ h1 {
     margin-left: 10px;
     font-size: 16px;
     font-weight: 700;
-    color: #799adb;
+    color: #5d84e0;
     vertical-align: middle;
 }
 
@@ -133,7 +128,7 @@ h1 {
     display: flex;
     justify-content: flex-end;
     gap: 8px;
-    max-width: 1360px;
+    max-width: 1280px;
     margin: 0 auto 8px;
 }
 
@@ -142,8 +137,8 @@ h1 {
     height: 32px;
     border-radius: 50%;
     border: none;
-    background: #ecf1fa;
-    color: #425c91;
+    background: #eaf0fb;
+    color: #3d5aa8;
     font-size: 13px;
     display: flex;
     align-items: center;
@@ -153,7 +148,7 @@ h1 {
 }
 
 .nav-btn:hover:not(:disabled) {
-    background: #d3def3;
+    background: #d7e3f7;
     transform: none;
 }
 
@@ -164,7 +159,7 @@ h1 {
 
 table {
     width: 100%;
-    max-width: 1360px;
+    max-width: 1280px;
     margin: 0 auto;
     border-collapse: collapse;
     table-layout: fixed;
@@ -174,17 +169,16 @@ table {
 
 th {
     background: #6188d5;
-    color: #1a1a1a;
-    height: 68px;
-    font-size: 23px;
+    color: #ffffff;
+    height: 64px;
+    font-size: 19px;
     font-weight: 800;
-    padding: 0 4px;
-    white-space: nowrap;
     border: 1px solid rgba(255,255,255,.45);
+    padding: 0 2px;
 }
 
 th:first-child {
-    width: 160px;
+    width: 128px;
 }
 
 .clickable-header {
@@ -193,18 +187,19 @@ th:first-child {
 }
 
 .clickable-header:hover {
-    background: #5274b5;
+    background: #4a6cc0;
 }
 
 td {
-    height: 68px;
+    height: 64px;
     text-align: center;
-    font-size: 23px;
+    font-size: 18px;
     font-weight: 700;
     background: #fff;
     border: 1px solid #e3e3e3;
     cursor: pointer;
     transition: .15s;
+    padding: 0 2px;
 }
 
 td:hover {
@@ -251,19 +246,12 @@ td:hover {
    왼른 취향표
 =========================== */
 
-/* 10명 4-3-3 배치: 세로 컬럼 3개(4명 / 3명 / 3명)를 나란히 배치 */
 .lr-grid {
-    display: flex;
-    align-items: flex-start;
-    gap: 40px;
-}
-
-.lr-col {
-    flex: 1;
-    min-width: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: repeat(4, auto);
+    grid-auto-flow: column;
+    gap: 46px 40px;
 }
 
 .lr-row {
@@ -280,8 +268,8 @@ td:hover {
     overflow: hidden;
     flex: 0 0 auto;
     cursor: pointer;
-    border: 4px solid #ecf1fa;
-    background: #ecf1fa;
+    border: 4px solid #eaf0fb;
+    background: #eaf0fb;
 }
 
 .lr-avatar img {
@@ -325,7 +313,7 @@ td:hover {
 .lr-label-r {
     font-size: 17px;
     font-weight: 800;
-    color: #425c91;
+    color: #3d5aa8;
     flex: 0 0 auto;
 }
 
@@ -333,7 +321,7 @@ td:hover {
     flex: 1;
     display: flex;
     height: 32px;
-    border: 2px solid #c3d2ef;
+    border: 2px solid #c7d7f5;
     border-radius: 8px;
     overflow: hidden;
 }
@@ -342,7 +330,7 @@ td:hover {
     flex: 1;
     height: 100%;
     background: #fff;
-    border-right: 1px solid #e3eaf7;
+    border-right: 1px solid #e1e9fa;
     cursor: pointer;
     transition: .1s;
 }
@@ -352,7 +340,7 @@ td:hover {
 }
 
 .lr-cell:hover {
-    background: #f4f7fc;
+    background: #f0f4fd;
 }
 
 .lr-cell.filled {
@@ -368,7 +356,7 @@ td:hover {
     min-height: 150px;
     resize: none;
     overflow: hidden;
-    border: 2px solid #c3d2ef;
+    border: 2px solid #c7d7f5;
     border-radius: 10px;
     padding: 12px 14px 26px;
     font-size: 17px;
@@ -380,11 +368,11 @@ td:hover {
 }
 
 .lr-text:focus {
-    border-color: #425c91;
+    border-color: #3d5aa8;
 }
 
 .lr-text::placeholder {
-    color: #98b2e4;
+    color: #a7b8dd;
 }
 
 .lr-char-count {
@@ -392,7 +380,7 @@ td:hover {
     right: 12px;
     bottom: 8px;
     font-size: 12px;
-    color: #98b2e4;
+    color: #a7b8dd;
     font-weight: 600;
     pointer-events: none;
 }
@@ -436,11 +424,11 @@ button:hover {
 
 #saveBtn {
     background: #6188d5;
-    color: #1a1a1a;
+    color: #ffffff;
 }
 
 #saveBtn:hover {
-    background: #5274b5;
+    background: #4a6cc0;
 }
 
 #resetBtn {
@@ -481,7 +469,7 @@ button:hover {
 .date-toggle input {
     width: 17px;
     height: 17px;
-    accent-color: #425c91;
+    accent-color: #3d5aa8;
     cursor: pointer;
 }
 
@@ -651,7 +639,7 @@ button:hover {
 }
 
 .reset-colors-link:hover {
-    color: #425c91;
+    color: #3d5aa8;
 }
 
 .modal-extra {
@@ -677,7 +665,7 @@ button:hover {
 .hide-toggle input {
     width: 16px;
     height: 16px;
-    accent-color: #425c91;
+    accent-color: #3d5aa8;
     cursor: pointer;
 }
 
@@ -755,15 +743,6 @@ button:hover {
         padding: 20px 14px 22px;
         border-radius: 16px;
         box-shadow: 0 6px 20px rgba(0, 0, 0, .08);
-    }
-
-    /* 공수 취향표는 데스크톱에서 #captureAreaLr { width: 1500px }로
-       고정 폭을 주고 있는데, ID 선택자라 위 .capture-area보다 우선순위가
-       높아서 모바일에서도 폭이 안 줄어드는 문제가 있었다.
-       같은 ID 선택자로 다시 한 번 100%를 지정해 모바일에서 화면 폭에
-       맞춰 줄어들도록 한다. */
-    #captureAreaLr {
-        width: 100%;
     }
 
     .logo {
@@ -928,12 +907,10 @@ button:hover {
     }
 
     .lr-grid {
-        flex-direction: column;
-        gap: 22px;
-    }
-
-    .lr-col {
-        gap: 22px;
+        grid-template-columns: 1fr;
+        grid-template-rows: none;
+        grid-auto-flow: row;
+        gap: 26px;
     }
 
     .lr-row {

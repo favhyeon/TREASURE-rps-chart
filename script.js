@@ -17,20 +17,20 @@ const members = [
 ];
 
 /* 멤버별 본인 이니셜 (닉네임, 행/열 숨기기 문구에 사용) */
-const ownInitials = ["석", "쥰", "욧", "준", "혁", "샇", "뎡", "뤁", "늑", "환"];
+const ownInitials = ["최", "쥰", "욧", "준", "혁", "샇", "뎡", "뤁", "늑", "환"];
 
 /* 멤버별 기본 아바타 색상 (사진 로드 실패 시 대체용) */
 const memberColors = [
     "#6188d5",
-    "#63d1e2",
-    "#ffd166",
-    "#a0e6b1",
-    "#c9a4ff",
-    "#ff9ec8",
-    "#ffb37a",
-    "#8ec9f2",
-    "#ff8a80",
-    "#b0bec5"
+    "#6188d5",
+    "#6188d5",
+    "#6188d5",
+    "#6188d5",
+    "#6188d5",
+    "#6188d5",
+    "#6188d5",
+    "#6188d5",
+    "#6188d5"
 ];
 
 /* 멤버별 기본 프로필 사진 (members 배열과 순서 동일) */
@@ -50,21 +50,20 @@ const defaultPhotos = [
 /*
  * 표에 표시할 커플명.
  * [행 멤버][열 멤버] 순서.
- * 대각선(본인조합)은 각 멤버 본인의 이니셜을 두 번 합쳐서 만들었어요.
- * 이니셜(최·쥰·욧·준·혁·샇·뎡·뤁·늑·환)을 그대로 이어붙인 기본값이니,
+ * 멤버 순서: 최현석·지훈·요시·준규·윤재혁·아사히·도영·하루토·박정우·소정환
  * 원하는 조합명으로 자유롭게 바꿔서 쓰시면 돼요.
  */
 const pairNames = [
-    ["최최", "석쥰", "석욧", "석준", "최혁", "석샇", "쵷도", "석뤁", "석늑", "석환"],
-    ["쥰최", "쥰쥰", "쥰욧", "쥰준", "훈혁", "쥰샇", "훈영", "쥰뤁", "쥰늑", "쥰환"],
-    ["욧최", "욧쥰", "욧욧", "욧규", "욧혁", "욧샇", "욧뎡", "욧뤁", "욧늑", "욧환"],
-    ["준최", "준쥰", "규시노리", "준준", "뀨혁", "준샇", "준뎡", "준뤁", "준늑", "뀨환"],
-    ["혁최", "혁쥰", "혁욧", "혁쭌", "혁혁", "혁샇", "혁뎡", "혁뤁", "혁늑", "혁환"],
-    ["샇최", "샇쥰", "샇욧", "샇준", "히혁", "샇샇", "아사영", "아사루", "샇늑", "아사환"],
-    ["도최", "뎡쥰", "뎡욧", "영뀨", "영혁", "뎡샇", "뎡뎡", "도뤁", "뎡늑", "둉정"],
-    ["뤁최", "뤁쥰", "뤁욧", "뤁규", "뤁혁", "뤁샇", "뤁뎡", "뤁뤁", "뤁정", "뤁환"],
-    ["늑최", "늑쥰", "늑욧", "늑규", "늑혁", "늑샇", "늑뎡", "우하루", "늑늑", "늑환"],
-    ["환최", "소쥰", "환욧", "환뀨", "환혁", "환샇", "환뎡", "환뤁", "환늑", "환환"]
+    ["최최", "석준", "석욧", "석준", "최혁", "석상", "칠도", "석룰", "석늑", "석환"],
+    ["준최", "준준", "준욧", "준준", "훈혁", "준상", "훈영", "준룰", "준늑", "준환"],
+    ["욧최", "욧준", "욧욧", "욧규", "욧혁", "욧상", "욧뎡", "욧룰", "욧늑", "욧환"],
+    ["준최", "준준", "규시노리", "준준", "뀨혁", "준상", "준뎡", "준룰", "뀨늑", "뀨환"],
+    ["혁최", "혁준", "혁욧", "혁쭌", "혁혁", "혁상", "혁뎡", "혁룰", "혁늑", "혁환"],
+    ["상최", "상준", "상욧", "상준", "히혁", "상상", "아사영", "아사루", "상늑", "아사환"],
+    ["도최", "뎡준", "뎡욧", "영뀨", "영혁", "뎡상", "뎡뎡", "도룰", "뎡늑", "동정"],
+    ["룰최", "룰준", "룰욧", "룰규", "룰혁", "룰상", "룰뎡", "룰룰", "룰정", "룰환"],
+    ["늑최", "늑준", "늑욧", "늑규", "늑혁", "늑상", "늑뎡", "우하루", "늑늑", "늑환"],
+    ["환최", "소준", "환욧", "환규", "환혁", "환상", "환뎡", "환룰", "환늑", "환환"]
 ];
 
 const options = [
@@ -97,15 +96,9 @@ function resetCustomColors() {
     localStorage.removeItem(CUSTOM_COLOR_KEY);
 }
 
-const STORAGE_KEY = "treasure-ttpes-rps";
+const STORAGE_KEY = "treasure-tfes-rps";
 const LR_STORAGE_KEY = "treasure-lr-rps";
 const LR_CELL_COUNT = 12;
-
-/* 공수 취향표 - 10명을 한 줄(1열)로 세로로 배치한다.
-   L-R 바가 카드 폭 전체를 채우도록 컬럼 분할을 없앤 상태.
-   예전처럼 여러 컬럼으로 나누고 싶으면 이 배열에 그룹 크기를 나눠 적으면 된다
-   (예: [4, 3, 3] → 4-3-3 세 컬럼). */
-const LR_GROUP_SIZES = [10];
 
 /* 행/열 개별 숨기기 상태 (멤버 인덱스 기준, rows/cols 따로 관리) */
 const HIDDEN_KEY = "treasure-hidden-members";
@@ -170,8 +163,7 @@ const scaleWrap = document.getElementById("scaleWrap");
 /* CSS의 @media (max-width: 768px)과 동일한 기준.
    이 폭 이하에서는 JS로 축소하지 않고, 반응형 레이아웃을 그대로 사용한다. */
 const MOBILE_BREAKPOINT = 768;
-const DESKTOP_CAPTURE_WIDTH_RPS = 1500;
-const DESKTOP_CAPTURE_WIDTH_LR = 1500;
+const DESKTOP_CAPTURE_WIDTH = 1400;
 
 let currentTarget = null; // { type: "cell", td } | { type: "row", index } | { type: "col", index }
 let currentTab = "rps";
@@ -595,27 +587,7 @@ function defaultAvatar(name, color) {
 function createLrGrid() {
     lrGrid.innerHTML = "";
 
-    let cursor = 0;
-    LR_GROUP_SIZES.forEach(groupSize => {
-        const col = document.createElement("div");
-        col.className = "lr-col";
-
-        members.slice(cursor, cursor + groupSize).forEach((member, offset) => {
-            const index = cursor + offset;
-            col.appendChild(createLrRow(member, index));
-        });
-
-        lrGrid.appendChild(col);
-        cursor += groupSize;
-    });
-
-    /* 저장돼 있던 글이 여러 줄이어도 처음부터 잘리지 않도록,
-       모든 칸을 한 번씩 실제 내용 높이에 맞춰준다. */
-    lrGrid.querySelectorAll(".lr-text").forEach(autoResizeTextarea);
-}
-
-/* 공수 취향표 - 멤버 한 명의 행(아바타 + 바 + 텍스트)을 만든다. */
-function createLrRow(member, index) {
+    members.forEach((member, index) => {
         const row = document.createElement("div");
         row.className = "lr-row";
 
@@ -717,7 +689,12 @@ function createLrRow(member, index) {
 
         row.appendChild(content);
 
-        return row;
+        lrGrid.appendChild(row);
+    });
+
+    /* 저장돼 있던 글이 여러 줄이어도 처음부터 잘리지 않도록,
+       모든 칸을 한 번씩 실제 내용 높이에 맞춰준다. */
+    lrGrid.querySelectorAll(".lr-text").forEach(autoResizeTextarea);
 }
 
 /* 칸에 적은 글이 늘어나면 잘리는 대신 칸 자체가 자연스럽게 늘어나도록.
@@ -813,7 +790,7 @@ saveBtn.addEventListener("click", async () => {
             scale: 4,
             useCORS: true,
             logging: false,
-            windowWidth: currentTab === "rps" ? DESKTOP_CAPTURE_WIDTH_RPS : DESKTOP_CAPTURE_WIDTH_LR,
+            windowWidth: DESKTOP_CAPTURE_WIDTH,
             windowHeight: Math.max(area.scrollHeight, 1600),
             /*
              * html2canvas는 textarea 안의 줄바꿈/자동 줄바꿈을 제대로
@@ -901,8 +878,6 @@ function fitCaptureArea() {
 
     if (!area || !wrap) return;
 
-    const captureWidth = currentTab === "rps" ? DESKTOP_CAPTURE_WIDTH_RPS : DESKTOP_CAPTURE_WIDTH_LR;
-
     const screenWidth = Math.min(
         window.innerWidth,
         document.documentElement.clientWidth
@@ -918,12 +893,12 @@ function fitCaptureArea() {
         return;
     }
 
-    const scale = Math.min(1, screenWidth / captureWidth);
+    const scale = Math.min(1, screenWidth / DESKTOP_CAPTURE_WIDTH);
 
     area.style.transformOrigin = "top left";
     area.style.transform = `scale(${scale})`;
 
-    wrap.style.width = `${captureWidth * scale}px`;
+    wrap.style.width = `${DESKTOP_CAPTURE_WIDTH * scale}px`;
     wrap.style.height = `${area.scrollHeight * scale}px`;
 }
 
